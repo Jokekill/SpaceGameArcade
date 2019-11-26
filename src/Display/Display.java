@@ -4,7 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Display {
-    private JFrame fr;
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    private JFrame frame;
 
     public Canvas getCanvas() {
         return canvas;
@@ -22,17 +26,19 @@ public class Display {
     }
 
     private void createDisplay(){
-        fr = new JFrame(title);
-        fr.setSize(width,height);
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fr.setResizable(false);
-        fr.setVisible(true);
+        frame = new JFrame(title);
+        frame.setSize(width,height);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setVisible(true);
 
         canvas = new Canvas();
         canvas.setPreferredSize(new Dimension(width, height));
         canvas.setMaximumSize(new Dimension(width, height));
         canvas.setMinimumSize(new Dimension(width, height));
-        fr.add(canvas);
-        fr.pack();
+        canvas.setFocusable(false);
+
+        frame.add(canvas);
+        frame.pack();
     }
 }

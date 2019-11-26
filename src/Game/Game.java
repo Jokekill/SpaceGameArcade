@@ -1,8 +1,14 @@
+package Game;
+
 import Display.Display;
+import Input.KeyBoardInput;
 import states.GameState;
 import states.MenuState;
 import states.State;
 import states.StatesManager;
+import Graphics.Assets;
+
+
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -22,6 +28,13 @@ public class Game implements  Runnable{
     private StatesManager statesManager;
     private State gameState;
     private State menuState;
+    public GameState currGameState;
+
+    public KeyBoardInput getKeyBoardInput() {
+        return keyBoardInput;
+    }
+
+    private KeyBoardInput keyBoardInput;
 
 
     public Game(String title, int width, int height){
@@ -32,13 +45,24 @@ public class Game implements  Runnable{
 
     private void init(){
         display = new Display(title, width, height);
-        menuState = new MenuState();
-        gameState = new GameState();
-        statesManager.setCurrentState(menuState);
+        menuState = new MenuState(this);
+        gameState = new GameState(this);
+        statesManager.setCurrentState(gameState); //TODO chanche back to menustate
+        keyBoardInput = new KeyBoardInput();
+        display.getFrame().addKeyListener(keyBoardInput);
+        Assets.init();
+
+        currGameState = (GameState)gameState;
+    }
+
+    public GameState getGameState(){
+        return ( GameState) statesManager.getCurrentState();
     }
 
     private void update(){
+        keyBoardInput.update();
         StatesManager.getCurrentState().update();
+
     }
     private void render(){
         bs = display.getCanvas().getBufferStrategy();
