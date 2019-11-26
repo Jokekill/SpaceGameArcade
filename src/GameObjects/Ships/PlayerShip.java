@@ -2,7 +2,7 @@ package GameObjects.Ships;
 
 import Game.Game;
 import GameObjects.Guns.SimpleIontGun;
-import GameObjects.Guns.SimpleLaserGun;
+import GameObjects.Guns.SimpleRedLaserGun;
 import GameObjects.Guns.Gun;
 
 import java.awt.*;
@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 import GameObjects.Projectiles.Projectile;
 import Graphics.Assets;
-import javafx.scene.control.skin.CellSkinBase;
-import states.GameState;
 
 public class PlayerShip extends Ship {
 
@@ -23,7 +21,7 @@ public class PlayerShip extends Ship {
         super(x, y, width, height, game);
 
         guns = new ArrayList<>();
-        SimpleLaserGun l = new SimpleLaserGun(10,0,-4, game, this);
+        SimpleRedLaserGun l = new SimpleRedLaserGun(10,0,-4, game, this);
         l.setOffset(15,-7);
         guns.add(l);
         SimpleIontGun I = (new SimpleIontGun(35,(float)-0.25,(float)-3, game, this));
@@ -76,6 +74,6 @@ public class PlayerShip extends Ship {
     private void renderHitPointsBar(Graphics g)
     {
         g.setColor(Color.RED);
-        g.fillRect((int)x,(int)y +height +3, (int)  ((width) * hitPoints/maxHitPoints), 4);
+        g.fillRect((int)x,(int)y +height +4, (int)  ((width) * hitPoints/maxHitPoints), 2);
     }
 }

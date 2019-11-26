@@ -74,7 +74,8 @@ public class Game implements  Runnable{
         //Clear Screen
         g.clearRect(0, 0, width, height);
         //Draw Here!
-
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,width,height);
         StatesManager.getCurrentState().render(g);
 
         //End Drawing!

@@ -3,7 +3,8 @@ package GameObjects.Ships;
 import AIControls.MovementControl;
 import Game.Game;
 import GameObjects.Guns.Gun;
-import GameObjects.Guns.SimpleLaserGun;
+import GameObjects.Guns.SimpleGreenLaserGun;
+import GameObjects.Guns.SimpleRedLaserGun;
 import GameObjects.Projectiles.Projectile;
 import Graphics.Assets;
 
@@ -16,7 +17,7 @@ public class BasicShip extends Ship {
     public BasicShip(float x, float y, int width, int height, Game game) {
         super(x, y, width, height, game);
         guns = new ArrayList<>();
-        SimpleLaserGun l = new SimpleLaserGun(50,0,4, game, this);
+        SimpleGreenLaserGun l = new SimpleGreenLaserGun(50,0,4, game, this);
         l.setOffset(15,37);
         guns.add(l);
 
@@ -56,6 +57,6 @@ public class BasicShip extends Ship {
     private void renderHitPointsBar(Graphics g)
     {
         g.setColor(Color.RED);
-        g.fillRect((int)x,(int)y  -3, (int)  ((width) * hitPoints/maxHitPoints), 4);
+        g.fillRect((int)x,(int)y  -4, (int)  ((width) * hitPoints/maxHitPoints), 2);
     }
 }
