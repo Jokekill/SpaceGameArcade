@@ -22,7 +22,7 @@ public class KeyBoardInput implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;
-        System.out.println("Pressed: " + e.getKeyCode());
+        //System.out.println("Pressed: " + e.getKeyCode());
     }
 
     @Override

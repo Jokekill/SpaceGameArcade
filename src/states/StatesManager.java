@@ -10,4 +10,5 @@ public class StatesManager {
     public static void setCurrentState(State currentState) {
         StatesManager.currentState = currentState;
     }
+
 }

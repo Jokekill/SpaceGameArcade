@@ -9,7 +9,7 @@ import states.GameState;
 
 public class SimpleLaserGun extends Gun {
 
-    public SimpleLaserGun( int timer, int xDirection, int yDirection, Game game, Ship ship) {
+    public SimpleLaserGun( int timer, float xDirection, float yDirection, Game game, Ship ship) {
         super(timer, xDirection, yDirection, game, ship);
     }
 

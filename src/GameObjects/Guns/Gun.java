@@ -6,13 +6,14 @@ import states.GameState;
 
 public abstract class Gun {
 
-    int freq,timer,xDirection,yDirection, xOffset, yOffset;
+    int freq,timer, xOffset, yOffset;
+    float xDirection,yDirection;
     public abstract void fire();
     public abstract void reload();
     Game game;
     Ship ship;
 
-    public Gun(int timer, int xDirection, int yDirection, Game game, Ship ship) {
+    public Gun(int timer, float xDirection, float yDirection, Game game, Ship ship) {
         this.freq = 0;
         this.timer = timer;
         this.xDirection = xDirection;

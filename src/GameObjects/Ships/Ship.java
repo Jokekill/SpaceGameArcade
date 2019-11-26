@@ -1,20 +1,27 @@
 package GameObjects.Ships;
 
+import Game.Game;
 import GameObjects.GameObject;
 import GameObjects.Guns.Gun;
+import GameObjects.Projectiles.Projectile;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Ship extends GameObject {
 
-    float hitPoints;
-    int oriantation;
+    public float hitPoints;
+    Game game;
+    int maxHitPoints;;
     ArrayList<Gun> guns;
+    int speed;
+    public abstract void getHit(Projectile p);
+    public abstract boolean checkExistence();
 
 
-    public Ship(float x, float y, int width, int height, float hitPoints) {
+    public Ship(float x, float y, int width, int height, Game game) {
         super(x, y, width, height);
-        this.hitPoints = hitPoints;
+        this.game = game;
+
     }
 }

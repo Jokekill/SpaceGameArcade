@@ -6,7 +6,7 @@ import GameObjects.Projectiles.SimpleLaserProjectile;
 import GameObjects.Ships.Ship;
 
 public class SimpleIontGun extends Gun {
-    public SimpleIontGun(int timer, int xDirection, int yDirection, Game game, Ship ship) {
+    public SimpleIontGun(int timer, float xDirection, float yDirection, Game game, Ship ship) {
         super( timer, xDirection, yDirection, game, ship);
     }
 
