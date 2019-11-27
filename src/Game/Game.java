@@ -132,6 +132,7 @@ public class Game implements  Runnable{
     {
         gameState = new GameState(this);
         statesManager.setCurrentState(gameState);
+        currGameState = (GameState) gameState;
     }
 
     public synchronized void stop(){
