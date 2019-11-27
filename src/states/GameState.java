@@ -25,7 +25,7 @@ public class GameState extends State {
 
     public GameState(Game game) {
         super(game);
-        playerShip = new PlayerShip(game.height >> 1,game.width -32, 32,32,game);
+        playerShip = new PlayerShip(game.width >> 1,game.height -40, 32,32,game);
         gameObjects = new ArrayList<>();
         newGameObjects = new ArrayList<>();
         gameObjects.add(playerShip);
@@ -74,10 +74,13 @@ public class GameState extends State {
             //TODO return ships back to playing field
             if (go instanceof Ship )
             {
+                if (go instanceof PlayerShip  && ((Ship) go).hitPoints <= 0) {
+                    game.returnToMenu();
+                    return;
+                }
                 if (((Ship) go).hitPoints <= 0) {
                     objectsToRemove.add(go);
                     newGameObjects.add(new Explosion(go.x, go.y, 32, 32, 100));
-
                 }
             }
             if (go instanceof Explosion)

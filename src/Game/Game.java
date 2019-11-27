@@ -124,6 +124,15 @@ public class Game implements  Runnable{
         thread = new Thread(this);
         thread.start();
     }
+    public void returnToMenu(){
+        menuState = new MenuState(this);
+        statesManager.setCurrentState(menuState);
+    }
+    public void startNewGame()
+    {
+        gameState = new GameState(this);
+        statesManager.setCurrentState(gameState);
+    }
 
     public synchronized void stop(){
         if(!running)
