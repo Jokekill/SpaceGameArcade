@@ -24,7 +24,7 @@ public class BasicShip extends Ship {
         movementControl = new MovementControl(game.width,game.height);
         maxHitPoints = 100;
         hitPoints = maxHitPoints;
-        speed = 10;
+        speed = 1;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class BasicShip extends Ship {
 
     @Override
     public void update() {
-        x = x + movementControl.vertical(this);
+        x = x + movementControl.vertical(this)*speed;
         for (Gun g: guns )   g.fire();
         for (Gun g: guns )   g.reload();
     }
@@ -53,6 +53,11 @@ public class BasicShip extends Ship {
             renderHitPointsBar(g);
         }
     }
+    public void modifyMovementSpeed(float by)
+    {
+        speed += by;
+    }
+
 
     private void renderHitPointsBar(Graphics g)
     {

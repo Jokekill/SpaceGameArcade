@@ -14,7 +14,7 @@ public abstract class Ship extends GameObject {
     Game game;
     int maxHitPoints;;
     ArrayList<Gun> guns;
-    int speed;
+    float speed;
     public abstract void getHit(Projectile p);
     public abstract boolean checkExistence();
 

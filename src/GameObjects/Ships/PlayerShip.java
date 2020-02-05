@@ -21,7 +21,7 @@ public class PlayerShip extends Ship {
         super(x, y, width, height, game);
 
         guns = new ArrayList<>();
-        SimpleRedLaserGun l = new SimpleRedLaserGun(10,0,-4, game, this);
+        SimpleRedLaserGun l = new SimpleRedLaserGun(10,0,-9, game, this);
         l.setOffset(15,-7);
         guns.add(l);
         SimpleIontGun I = (new SimpleIontGun(35,(float)-0.25,(float)-3, game, this));
