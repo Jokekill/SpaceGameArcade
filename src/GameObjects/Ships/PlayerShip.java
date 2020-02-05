@@ -32,7 +32,7 @@ public class PlayerShip extends Ship {
         guns.add(I);
         maxHitPoints = 100;
         hitPoints = maxHitPoints;
-        speed = 3;
+        speed = 3 ;
     }
 
 
